@@ -54,12 +54,21 @@ function acpt_custom_pages_list() {
                         </td>
                         <td>
                             <?php
+							$i = 0 ;
                             foreach ($pages as $page) {
+								
+								if($i > 0){
+									echo ", ";
+								}
+								
                                 if ($page->post_title != '') {
-                                    echo esc_html($page->post_title)." , ";
+                                    echo esc_html($page->post_title);
+									
                                 } else {
                                     echo "-";
                                 }
+								
+							$i++;
                             }
                             ?>
                         </td>
