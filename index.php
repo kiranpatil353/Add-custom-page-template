@@ -47,16 +47,16 @@ function acpt_custom_pages_list() {
                     ?>
                     <tr class="template-tr">
                         <td>
-                            <?php echo $template_filename; ?>
+                            <?php echo esc_html($template_filename); ?>
                         </td>
                         <td>
-                            <?php echo $template_name; ?>
+                            <?php echo esc_html($template_name); ?>
                         </td>
                         <td>
                             <?php
                             foreach ($pages as $page) {
                                 if ($page->post_title != '') {
-                                    echo $page->post_title;
+                                    echo esc_html($page->post_title)." , ";
                                 } else {
                                     echo "-";
                                 }
