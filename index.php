@@ -2,7 +2,7 @@
 /**
  * Plugin Name:		   Add custom page template
  * Plugin URI:		   http://clariontechnologies.co.in
- * Description:		   Add template files thrugh admin screen, And view listing for all custom template files in theme with linked pages.
+ * Description:		   Add template files through admin screen, And view listing for all custom template files in theme with linked pages.
  * Version: 		   1.0
  * Author: 		       kiranpatil353
  */
