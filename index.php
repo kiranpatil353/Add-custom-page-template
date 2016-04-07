@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name:		   Add custom page template
  * Plugin URI:		   http://clariontechnologies.co.in
@@ -28,6 +27,9 @@ function acpt_custom_pages_list() {
     $templates = wp_get_theme()->get_page_templates();
     ?>
     <div class="table-responsive">
+	<?php if (isset($_REQUEST['settings-updated']) && ($_REQUEST['settings-updated'] == 'true')) : ?>
+            <div class="updated fade"><p><strong><?php _e('Your Template file has been created.'); ?></strong></p></div>
+        <?php endif; ?>
         <h3>List of custom template files in a theme. </h3>
         <table class=" table wp-list-table widefat fixed striped pages">
             <thead>
@@ -90,7 +92,8 @@ add_action('admin_init', 'acpt_add_register_settings');
 
 // Validate user input 
 function acpt_validate_setting($plugin_options) {
-    if (isset($_POST['template_name']) && $_POST['template_name'] != '') {
+	
+    if (isset($_POST['template_name']) && $_POST['template_name'] != '' ) {
         $text = sanitize_text_field($_POST['template_name']);
         $text = (strlen($text) > 30) ? substr($text, 0, 30) : $text;
         // Conversion method.
@@ -104,12 +107,14 @@ function acpt_validate_setting($plugin_options) {
 		* Template name: $text
 		 */";
         // Content for template file End
-        if (file_exists($template_file)) {
+       
+       if (file_exists($template_file)) {
             wp_die('Template is already Exist');
         } else {
             $filehandle = fopen($template_file, "wb")or die('Cannot open file:  ' . $template_file);
             fwrite($filehandle, $content);
             fclose($filehandle);
+			 exit(wp_redirect(admin_url('admin.php?page=my-top-level-handle&settings-updated=true')));
         }
     } else {
         wp_die('No Data is Added');
@@ -119,6 +124,7 @@ function acpt_validate_setting($plugin_options) {
 
 // render Add template page view 
 function acpt_add_options_function() {
+
     ?>
     <div class="wrap">
         <?php if (isset($_REQUEST['settings-updated']) && ($_REQUEST['settings-updated'] == 'true')) : ?>
