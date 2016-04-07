@@ -1,6 +1,6 @@
-=== Bootstrap Flat File Slider ===
+=== Add-custom-page-template ===
 Contributors: kiranpatil353 , clarionwpdeveloper
-Tags: tempaltes listing, custom template, template help , theme template 
+Tags: templates listing, custom template, template help , theme template 
 Requires at least: 3.0.1
 Tested up to: 4.4
 Stable tag: 1.0
