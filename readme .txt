@@ -8,7 +8,7 @@ License: GPLv2 or later
 
 Add template files from admin screen , And view listing for all custom template files in theme with linked pages .
 == Description ==
-Add template files thrugh admin screen, And view listing for all custom template files in theme with linked pages.
+Add template files through admin screen, And view listing for all custom template files in theme with linked pages.
 Easy to use and helpful for theme developers to check template connection to pages and help find out the exact file.
 
 == Screenshots ==
